@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="../static/css/stye.css">
+<div class="container">
+
+
+
+<h1>Signup</h1>
+
+{{Error}}
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary">
+        Signup
+    </button>
+
+</form>
+</div>
+
+
+
+{% endblock %}
