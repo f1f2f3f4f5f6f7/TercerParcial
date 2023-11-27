@@ -28,7 +28,7 @@ def signup(request):
                                                 password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('notas')
+                return redirect('addNotas')
             except IntegrityError:
                 return render(request, 'signup.html', {
                     'form': UserCreationForm, "Error": 'Ya existe el usuario.'
