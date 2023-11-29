@@ -28,7 +28,7 @@ def signup(request):
                                                 password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('addNotas')
+                return redirect('notas')
             except IntegrityError:
                 return render(request, 'signup.html', {
                     'form': UserCreationForm, "Error": 'Ya existe el usuario.'
@@ -69,7 +69,7 @@ def addNotas(request):
 
 def signout(request):
     logout(request)
-    return redirect('signup')
+    return redirect('index')
 
 def signin(request):
     if request.method == 'GET':
