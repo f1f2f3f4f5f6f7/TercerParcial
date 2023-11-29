@@ -32,7 +32,7 @@
   }
   
   button {
-    background-color: #4caf50;
+    background-color: rgb(50, 91, 203);
     color: white;
     padding: 10px 15px;
     border: none;
@@ -41,7 +41,7 @@
   }
   
   button:hover {
-    background-color: #45a049;
+    background-color: rgb(50, 91, 203); 
   }
   
   .text-danger {

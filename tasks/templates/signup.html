@@ -2,11 +2,14 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="../static/css/stye.css">
+<link rel="stylesheet" type="text/css" href="../static/css/index.css">
+
 <div class="container">
 
 
 
-<h1>Signup</h1>
+<h1>Sign up</h1>
+<h5>(App de notas)</h5>
 
 {{Error}}
 
@@ -14,7 +17,7 @@
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit" class="btn btn-primary">
-        Signup
+        Sign up
     </button>
 
 </form>

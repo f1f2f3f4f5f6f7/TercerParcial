@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="../static/css/stye.css">
+<link rel="stylesheet" type="text/css" href="../static/css/index.css">
 <h1>AddNotas</h1>
 {{Error}}
+<div class="container">
 <form action="/addNotas/" method="POST">
     {% csrf_token %}
     {{form}}
@@ -11,5 +14,5 @@
         Save
     </button>
 </form>
-
+</div>
 {% endblock %}
