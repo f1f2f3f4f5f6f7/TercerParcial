@@ -25,5 +25,6 @@ urlpatterns = [
     path('notas/', views.notas, name='notas'),
     path('logout/', views.signout, name='logout'),
     path('signin/', views.signin, name='signin'),
-    path('addNotas/', views.addNotas, name='addNotas')
+    path('addNotas/', views.addNotas, name='addNotas'),
+    path('eliminacionNota/<title>', views.eliminacionNota)
 ]

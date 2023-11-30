@@ -86,3 +86,10 @@ def signin(request):
         else:
             login(request, user)
             return redirect('notas')
+        
+
+
+def eliminacionNota(request, title):
+    nota = Notas.objects.get(title = title)
+    nota.delete()
+    return redirect('notas')
