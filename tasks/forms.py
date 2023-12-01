@@ -5,7 +5,7 @@ from django import forms
 class NotasForm(ModelForm):
     class Meta:
         model= Notas
-        fields = ['title','datecompleted', 'nota']
+        fields = ['title', 'nota']
         widgets = {
             'datecompleted': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
         }
