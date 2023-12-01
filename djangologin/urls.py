@@ -26,5 +26,7 @@ urlpatterns = [
     path('logout/', views.signout, name='logout'),
     path('signin/', views.signin, name='signin'),
     path('addNotas/', views.addNotas, name='addNotas'),
-    path('eliminacionNota/<title>', views.eliminacionNota)
+    path('eliminacionNota/<int:nota_id>/', views.eliminacionNota, name='eliminacionNota'),
+    path('editarNota/<int:nota_id>/', views.editarNota ,name ='editarNota' ),
+    path('getNota/<int:nota_id>/', views.getNota, name='getNota'),
 ]

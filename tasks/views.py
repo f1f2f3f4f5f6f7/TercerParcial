@@ -6,6 +6,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from .forms import NotasForm
 from .models import Notas
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -89,7 +90,32 @@ def signin(request):
         
 
 
-def eliminacionNota(request, title):
-    nota = Notas.objects.get(title = title)
-    nota.delete()
+def eliminacionNota(request, nota_id):
+    notas = Notas.objects.filter(id=nota_id, user=request.user)
+    if notas.exists():
+        notas.delete()
     return redirect('notas')
+
+def editarNota(request, nota_id):
+    nota = get_object_or_404(Notas, id=nota_id, user=request.user)
+
+    if request.method == 'GET':
+        form = NotasForm(instance=nota)
+        return render(request, 'editarNota.html', {'form': form, 'nota_id': nota_id})
+
+    elif request.method == 'POST':
+        form = NotasForm(request.POST, instance=nota)
+        if form.is_valid():
+            form.save()
+            return redirect('notas')
+        else:
+            return render(request, 'editarNota.html', {'form': form, 'nota_id': nota_id})
+        
+def getNota(request, nota_id):
+    nota = get_object_or_404(Notas, id=nota_id, user=request.user)
+    form = NotasForm(instance=nota)
+
+    for field_name, field in form.fields.items():
+        field.widget.attrs['readonly'] = True
+
+    return render(request, 'getNota.html', {'form': form, 'nota_id': nota_id})

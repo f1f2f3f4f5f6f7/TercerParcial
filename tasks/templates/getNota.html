@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Ver Nota</h1>
+<div class="container">
+    <form>
+        {% csrf_token %}
+        {{ form.title.label_tag }}
+        {{ form.title.value }}
+        <br>
+        {{ form.nota.label_tag }}
+        {{ form.nota.value }}
+    </form>
+</div>
+{% endblock %}
