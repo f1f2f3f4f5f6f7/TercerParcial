@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Ver Nota</h1>
-<div class="container">
-    <form>
+  <div style="text-align: center; margin: 20px;">
+    <div style="margin: 20px; padding: 20px; border: 1px solid #ccc; border-radius: 10px;" class="form-container">
+      <h1 style="font-size: 24px; color: #333;">Ver Nota</h1>
+      <form>
         {% csrf_token %}
-        {{ form.title.label_tag }}
-        {{ form.title.value }}
-        <br>
-        {{ form.nota.label_tag }}
-        {{ form.nota.value }}
-    </form>
-</div>
+        <div style="margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; padding: 10px;">
+          <label style="display: block; font-weight: bold; margin-bottom: 5px;" for="{{ form.title.id_for_label }}">Título:</label>
+          <p style="margin-top: 5px;">{{ form.title.value }}</p>
+        </div>
+        <div style="margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; padding: 10px;">
+          <label style="display: block; font-weight: bold; margin-bottom: 5px;" for="{{ form.nota.id_for_label }}">Nota:</label>
+          <p style="margin-top: 5px;">{{ form.nota.value }}</p>
+        </div>
+      </form>
+    </div>
+  </div>
 {% endblock %}
